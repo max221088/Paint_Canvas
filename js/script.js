@@ -5,10 +5,12 @@ const $main = document.querySelector('.main');
 const $color = document.querySelector('.color');
 const $linecolor = document.querySelector('.linecolor');
 const $figure = document.querySelector('.figure');
+const $WidthLine = document.querySelector('.width_line');
 const ctx = $area.getContext('2d');
 let color = 'black';
 let lineColor = 'black';
 let figure = 'Line';
+let WidtgLine = '1';
 let begin = false;
 let coords = [x = 0, y = 0];
 let size = [w = 0, h = 0];
@@ -32,6 +34,10 @@ $figure.addEventListener("change", function(e){
     figure = e.target.value;
 });
 
+$WidthLine.addEventListener("change", function(e){
+    WidtgLine = e.target.value;
+});
+
 // Action section
 
 $area.addEventListener('mousedown', function(e){
@@ -44,6 +50,7 @@ $area.addEventListener('mousedown', function(e){
     if (figure === 'Line') {
         begin = 'Line';
         ctx.beginPath();
+        ctx.lineWidth = WidtgLine;
         ctx.strokeStyle = lineColor;
         ctx.moveTo(coords.x, coords.y);
     }
