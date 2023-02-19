@@ -71,12 +71,19 @@ $area.addEventListener('mousemove', function(e){
     }
     if ((figure === 'Line') && (begin === 'Line')) {
         ctx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+        ctx.lineCap = 'round';
+        // ctx.arc(e.pageX, e.pageY ,WidtgLine ,0,Math.PI*2,true);
+        // ctx.strokeStyle = lineColor;
+        // ctx.fillStyle = color;
+        // ctx.fill();
+        // ctx.lineWidth = WidtgLine;
+        // ctx.strokeStyle = lineColor;
         ctx.stroke();
     }
     if ((figure === 'circle') && (begin === 'circle')) {
         size.w = e.pageX - coords.x - this.offsetLeft;
         size.h = e.pageY - coords.y - this.offsetTop;
-        ctx.arc(coords.x, coords.y ,Math.abs(size.w) ,0,Math.PI*2,true);
+        ctx.arc(coords.x, coords.y ,Math.abs(size.w+size.h) ,0,Math.PI*2,true);
         ctx.strokeStyle = lineColor;
         ctx.fillStyle = color;
         ctx.fill();
